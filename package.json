@@ -1,0 +1,9 @@
+{
+  "name": "tumblub",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "2.5.1",
+    "jade": "0.17.0",
+    "xml2json": "0.2.4"
+  }
+}
