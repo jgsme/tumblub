@@ -1,40 +1,37 @@
-var counter = 0;
 var page = 20;
-var side = true;
+var q = new getQuery();
 $(document).ready(function() {
-    var q = new getQuery();
     $.get("/x", {id: q.id, page: 0, num: 20}, function(res) {
         var j = JSON.parse(res);
         for(var i in j) $("#main").append($("<div />", {
             class: "back",
             css: {
                 width: $(window).width(),
-                height: $(window).height()
+                height: $(window).height(),
+                left: $(window).width()
             }
-        }).append($("<img />").attr("src", j[i])));
-        $("#main").css("height", $(window).height()).slider({
-            autoplay: true,
-            showControls: false,
-            showProgress: false,
-            hoverPause: false,
-            slideafter: function() {
-                counter += 1;
-                if(counter == 11) {
-                    $.get("/x", {id: q.id, page: page, num: 10}, function(res2) {
-                        var j2 = JSON.parse(res2);
-                        for(var i2 in j2) {
-                            if(side) $(".back > img:lt(10)")[i2].src = j2[i2];
-                            else $(".back > img:gt(9)")[i2].src = j2[i2];
-                        }
-                        side = !side;
-                    });
-                    page += 10;
-                    counter = 0;
-                }
-            }
-        });
+        }).append($("<img />").attr("src", j[i])).hide());
+        $(".back:eq(0)").show().animate({"left": "-="+$(window).width()+"px"}, "slow");
+        setInterval("slideshow()", 4000);
     });
 });
+
+function slideshow() {
+    $(".back:eq(0)").animate({"left": "-="+$(window).width()+"px"}, {complete: function() {$(this).remove()}}, "slow");
+    $(".back:eq(1)").show().animate({"left": "-="+$(window).width()+"px"}, "slow");
+    if($(".back").size() < 10) $.get("/x", {id: q.id, page: page, num: 20}, function(res) {
+        var j = JSON.parse(res);
+        for(var i in j) $("#main").append($("<div />", {
+            class: "back",
+            css: {
+                width: $(window).width(),
+                height: $(window).height(),
+                left: $(window).width()
+            }
+        }).append($("<img />").attr("src", j[i])).hide());
+        page += 20;
+    });
+}
 
 function getQuery() {
     var tmp = new Array();
