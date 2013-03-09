@@ -1,3 +1,5 @@
 exports.index = (req, res)->
-	res.send "It works!"
-	
+	res.render "index"
+
+exports.show = require "./show"
+exports.api = require "./api"

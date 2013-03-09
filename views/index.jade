@@ -1,6 +1,22 @@
-img(src="img/logo.png")
-form(method="get", action="/").
-    http:// <input type="text" name="id" size="5" /> .tumblr.com <input type="submit" value="show!" id="s" />
-p ①Enter someone tumblr ID↑ ②Click "show!" button ③Enjoy your tumblr life!
-p.
-    made by {<a href="/?id=e-jigsaw">e</a>|<a href="?id=r-jigsaw">r</a>}-jigsaw
+extends layout
+
+block content
+	img(src="images/logo.png")
+	form(method="get", action="/")
+		p
+			span http:// 
+			input(type="text", name="id", size="5")
+			span .tumblr.com
+			input(type="submit", value="show!")
+		p - or -
+		p
+			span http://
+			input(type="text", name="custom", size="20")
+			input(type="submit", value="show!")
+	ul
+		li ①Enter someone tumblr ID↑ OR Enter custom tumblr domain url
+		li ②Click "show!" button
+		li ③Enjoy your tumblr life!
+	p
+		span made by 
+		a(href="?custom=tumblr.jgs.me") r-jigsaw

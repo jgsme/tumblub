@@ -11,6 +11,8 @@ module.exports = (grunt)->
 			routes:
 				files:
 					"routes/index.js": "routes/index.coffee"
+					"routes/show.js": "routes/show.coffee"
+					"routes/api.js": "routes/api.coffee"
 				options:
 					bare: true
 		watch:
