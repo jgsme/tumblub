@@ -2,13 +2,14 @@ extends layout
 
 block content
 	img(src="images/logo.png")
-	form(method="get", action="/")
+	form(method="get", action="/show")
 		p
 			span http:// 
 			input(type="text", name="id", size="5")
 			span .tumblr.com
 			input(type="submit", value="show!")
 		p - or -
+	form(method="get", action="/show")
 		p
 			span http://
 			input(type="text", name="custom", size="20")

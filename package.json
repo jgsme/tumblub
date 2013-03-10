@@ -12,6 +12,6 @@
     "xml2json": "0.2.4"
   },
   "scripts": {
-  	"start": "grunt coffee; node app.js"
+  	"start": "grunt coffee sass; node app.js"
   }
 }

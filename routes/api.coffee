@@ -13,7 +13,7 @@ module.exports = (req, res)->
 			tumblr.host = "#{req.query.id}.tumblr.com"
 		else
 			tumblr.host = req.query.custom
-		tumblr.path = "/api/read?type=photo"
+		tumblr.path = "/api/read?type=photo&start=#{req.query.page}&num=20"
 		http.get tumblr, (stream)->
 			tumblog = ""
 			stream.on "data", (data)->

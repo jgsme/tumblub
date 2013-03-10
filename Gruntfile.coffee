@@ -15,6 +15,15 @@ module.exports = (grunt)->
 					"routes/api.js": "routes/api.coffee"
 				options:
 					bare: true
+			client:
+				files:
+					"public/javascripts/viewer.js": "viewer.coffee"
+				options:
+					bare: true
+		sass:
+			viewer:
+				files:
+					"public/stylesheets/viewer.css": "viewer.sass"
 		watch:
 			files: ["*.coffee"]
 			tasks: "coffee"
