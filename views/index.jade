@@ -1,8 +1,11 @@
 extends layout
 
+block links
+	link(href="stylesheets/index.css", rel="stylesheet", type="text/css")
+
 block content
-	img(src="images/logo.png")
 	form(method="get", action="/show")
+		img(src="images/logo.png")
 		p
 			span http:// 
 			input(type="text", name="id", size="5")
@@ -20,4 +23,4 @@ block content
 		li ③Enjoy your tumblr life!
 	p
 		span made by 
-		a(href="?custom=tumblr.jgs.me") r-jigsaw
+		a(href="/show?custom=tumblr.jgs.me") r-jigsaw

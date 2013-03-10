@@ -21,8 +21,9 @@ module.exports = (grunt)->
 				options:
 					bare: true
 		sass:
-			viewer:
+			client:
 				files:
+					"public/stylesheets/index.css": "index.sass"
 					"public/stylesheets/viewer.css": "viewer.sass"
 		watch:
 			files: ["*.coffee"]
