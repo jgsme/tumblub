@@ -5,6 +5,7 @@ $(document).ready ->
 		this.posts = ko.observableArray()
 		this.id = null
 		this.custom = null
+		this.random = 0
 		this.ajaxLock = 0
 		this.page = 0
 		
@@ -22,11 +23,14 @@ $(document).ready ->
 				this.id = query.id
 			else if query.custom?
 				this.custom = query.custom
+			if query.random?
+				this.random = 1
 			this.loadPosts self.startSlideshow
 		
 		this.loadPosts = (callback)->
 			params = 
 				page: self.page
+				random: self.random
 			if this.id?
 				params.id = this.id
 			else if this.custom?
