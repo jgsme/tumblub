@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "tumblr slideshow on your browser",
   "author": "jigsaw <m@jgs.me>",
+  "engines": {
+    "node": "0.8.21",
+    "npm": "1.2.12"
+  },
   "dependencies": {
     "coffee-script": "1.6.1",
 	"grunt": "0.4.0",
