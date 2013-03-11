@@ -20,11 +20,6 @@ module.exports = (grunt)->
 					"public/javascripts/viewer.js": "viewer.coffee"
 				options:
 					bare: true
-		sass:
-			client:
-				files:
-					"public/stylesheets/index.css": "index.sass"
-					"public/stylesheets/viewer.css": "viewer.sass"
 		watch:
 			files: ["*.coffee"]
 			tasks: "coffee"

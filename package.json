@@ -10,6 +10,7 @@
   "dependencies": {
     "npm": "1.2.12",
     "coffee-script": "1.6.1",
+    "stylus": "0.32.1",
 	  "grunt": "0.4.0",
     "grunt-cli": "0.1.6",
 	  "grunt-contrib": "0.4.0",
@@ -18,6 +19,6 @@
     "xml2json": "0.2.4"
   },
   "scripts": {
-  	"start": "grunt coffee sass; node app.js"
+  	"start": "grunt coffee; node app.js"
   }
 }

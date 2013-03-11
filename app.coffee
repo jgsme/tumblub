@@ -11,6 +11,7 @@ app.configure ->
 	app.set "view engine", "jade"
 	app.use express.logger "dev"
 	app.use app.router
+	app.use require('stylus').middleware({ src: __dirname + '/public' })
 	app.use express.static(path.join __dirname, "public")
 
 app.configure "development", ->
