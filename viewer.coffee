@@ -40,7 +40,9 @@ $(document).ready ->
 					for post in json.posts
 						self.posts.push post 
 					self.page += json.posts.length
-					callback()
+				else
+					console.log json
+				callback()
 
 		this.startSlideshow = ->
 			arg = arguments

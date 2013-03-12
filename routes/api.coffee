@@ -16,7 +16,7 @@ module.exports = (req, res)->
 		else
 			tumblr.host = req.query.custom
 		if req.query.random is "1"
-			tumblr.path = "/api/read"
+			tumblr.path = "/api/read?type=photo"
 			http.get tumblr, (stream)->
 				tumblog = ""
 				stream.on "data", (data)->
@@ -27,7 +27,7 @@ module.exports = (req, res)->
 						output.message = "XML data is not found. Maybe miss id or domain."
 					else
 						tumblog = JSON.parse parser.toJson(tumblog)
-						getTumblog output, tumblr, Math.floor(Math.random() * (parseInt(tumblog.tumblr.posts.total) - 20)), (output)->
+						getTumblog output, tumblr, (Math.floor(Math.random() * (parseInt(tumblog.tumblr.posts.total))) - 20), (output)->
 							res.send JSON.stringify(output)
 		else
 			getTumblog output, tumblr, req.query.page, (output)->
