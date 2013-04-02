@@ -29,6 +29,11 @@ module.exports = (req, res)->
 						tumblog = JSON.parse parser.toJson(tumblog)
 						getTumblog output, tumblr, (Math.floor(Math.random() * (parseInt(tumblog.tumblr.posts.total))) - 20), (output)->
 							res.send JSON.stringify(output)
+				etream.on "error", (err)->
+					console.log err
+					output.status = "Error"
+					output.message = "tumblog load error"
+					res.send JSON.stringify(output)
 		else
 			getTumblog output, tumblr, req.query.page, (output)->
 				res.send JSON.stringify(output)
@@ -62,4 +67,9 @@ getTumblog = (output, tumblr, page, callback)->
 							reblog_key: post["reblog-key"]
 						output.posts.push outpost
 					output.status = "success"
+			callback output
+
+		stream.on "error", (err)->
+			console.log err
+			output.status = "error"
 			callback output
