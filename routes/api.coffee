@@ -29,7 +29,7 @@ module.exports = (req, res)->
 						tumblog = JSON.parse parser.toJson(tumblog)
 						getTumblog output, tumblr, (Math.floor(Math.random() * (parseInt(tumblog.tumblr.posts.total))) - 20), (output)->
 							res.send JSON.stringify(output)
-				etream.on "error", (err)->
+				stream.on "error", (err)->
 					console.log err
 					output.status = "Error"
 					output.message = "tumblog load error"
