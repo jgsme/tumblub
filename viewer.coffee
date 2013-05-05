@@ -68,7 +68,7 @@ $(document).ready ->
 						self.posts.push post 
 					self.page += json.posts.length
 				else
-					console.log json
+					self.custom = "www.davidslog.com"
 				callback()
 
 		this.startSlideshow = ->
