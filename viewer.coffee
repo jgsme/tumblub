@@ -8,8 +8,9 @@ $(document).ready ->
 		this.random = 0
 		this.ajaxLock = 0
 		this.page = 0
-		this.size = 0
-		this.speed = 0
+		this.size = 500
+		this.speed = 3600
+		this.stock = 100
 		
 		this.init = ->
 			query = window.location.search.substring 1
@@ -22,12 +23,15 @@ $(document).ready ->
 					value = param.substring position+1
 					query[key] = value
 			
-			if query.id?
-				this.id = query.id
-			else if query.custom?
-				this.custom = query.custom
+			if query.id is "" or query.custom is ""
+				alert "ID not selected!"
 			else
-				alert "ID not found!"
+				if query.id?
+					this.id = query.id
+				else if query.custom?
+					this.custom = query.custom
+				else 
+					alert "ID not selected!"
 			
 			if query.random?
 				this.random = 1
@@ -37,7 +41,8 @@ $(document).ready ->
 				if query.size is 1280
 					this.size = query.size
 				else
-					this.size = 500
+					this.size = query.size
+					this.stock = 40
 			
 			this.loadPosts self.startSlideshow
 		
@@ -70,11 +75,11 @@ $(document).ready ->
 				left: "0%"
 			, 800, "linear", ->
 				$(".prev:first").removeClass("prev").addClass "current"
-			if $(".wait").length < 100 and self.ajaxLock is 0
+			if $(".wait").length < self.stock and self.ajaxLock is 0
 				self.ajaxLock = 1
 				self.loadPosts ->
 					self.ajaxLock = 0
-			setTimeout arg.callee, 3600
+			setTimeout arg.callee, self.speed
 
 		this
 

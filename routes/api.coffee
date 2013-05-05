@@ -7,7 +7,7 @@ module.exports = (req, res)->
 		message: null
 		posts: []
 	
-	if req.query.id? || req.query.custom?
+	if (req.query.id? and req.query.id isnt "") or (req.query.custom? and req.query.custom isnt "")
 		tumblr = 
 			host: null
 			path: null
