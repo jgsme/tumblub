@@ -23,26 +23,33 @@ $(document).ready ->
 					value = param.substring position+1
 					query[key] = value
 			
-			if query.id is "" or query.custom is ""
-				alert "ID not selected!"
-			else
-				if query.id?
-					this.id = query.id
-				else if query.custom?
-					this.custom = query.custom
-				else 
-					alert "ID not selected!"
+			if query.id is ""
+				query.id = "staff"
+
+			if query.custom is ""
+				query.custom = "www.davidslog.com"
+
+			if query.id?
+				this.id = query.id
+			else if query.custom?
+				this.custom = query.custom
+			else 
+				query.id = "staff"
 			
 			if query.random?
 				this.random = 1
 			
 			if query.size?
-				query.size = parseInt(query.size)
+				query.size = parseInt query.size
 				if query.size is 1280
 					this.size = query.size
 				else
-					this.size = query.size
 					this.stock = 40
+
+			if query.speed?
+				query.speed = parseInt query.speed
+				if query.speed >= 1000
+					this.speed = query.speed
 			
 			this.loadPosts self.startSlideshow
 		

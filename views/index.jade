@@ -8,20 +8,31 @@ block content
 		.centering
 			p(class="large")
 				span http://
-				input(type="text", name="id", size="5")
+				input(type="text", name="id", size="5", placeholder="staff")
 				span .tumblr.com
 				input(type="submit", value="show!")
 		
 		.righting
 			p
 				span.options
-					label(for="random1") Random:
-					input(type="checkbox", name="random", id="random1")
+					label(for="random") Random:
+					input(type="checkbox", name="random", id="random_2")
+			p
+				span.options
 					span  Photo size: 
-					label(for="p500_2") 500
-					input(type="radio", name="size", id="p500_2", value="500", checked)
-					label(for="p1280_2") 1280
-					input(type="radio", name="size", id="p1280_2", value="1280")
+					label(for="p500") 500
+					input(type="radio", name="size", id="p500", value="500", checked)
+					label(for="p1280") 1280
+					input(type="radio", name="size", id="p1280", value="1280")
+			p
+				span.options
+					span  Animation speed: 
+					label(for="s1000") fast
+					input(type="radio", name="speed", id="s1000", value="1000")
+					label(for="s3600") middle
+					input(type="radio", name="speed", id="s3600", value="3600", checked)
+					label(for="s7200") slow
+					input(type="radio", name="speed", id="s7200", value="7200")
 			
 		.centering
 			p(class="large") - or -
@@ -30,19 +41,30 @@ block content
 		.centering
 			p(class="large")
 				span http://
-				input(type="text", name="custom", size="20")
+				input(type="text", name="custom", size="20", placeholder="www.davidslog.com")
 				input(type="submit", value="show!")
 		
 		.righting
 			p
 				span.options
-					label(for="random2") Random:
-					input(type="checkbox", name="random", id="random2")
+					label(for="random_2") Random:
+					input(type="checkbox", name="random", id="random_2")
+			p
+				span.options
 					span  Photo size: 
 					label(for="p500_2") 500
 					input(type="radio", name="size", id="p500_2", value="500", checked)
 					label(for="p1280_2") 1280
 					input(type="radio", name="size", id="p1280_2", value="1280")
+			p
+				span.options
+					span  Animation speed: 
+					label(for="s1000_2") fast
+					input(type="radio", name="speed", id="s1000_2", value="1000")
+					label(for="s3600_2") middle
+					input(type="radio", name="speed", id="s3600_2", value="3600", checked)
+					label(for="s7200_2") slow
+					input(type="radio", name="speed", id="s7200_2", value="7200")
 	
 	.howto
 		h1 How to Use?
@@ -54,8 +76,9 @@ block content
 
 		h1 Options
 		ul
-			li Random: Random polling selecting tumblog if this checked
+			li Random: Random polling selecting tumblog if this checked.
 			li Photo Size: Choose photo size. 500 is fast but ugly, 1280 is slow but beautiful.
+			li Animation Speed: Choose animation speed. Fast is very fast, middle is just for me, slow is very slow. (This parameter adjustable by you!)
 	
 	.madeby
 		p
