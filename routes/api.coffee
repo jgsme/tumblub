@@ -1,5 +1,6 @@
 http = require "http"
 parser = require "xml2json"
+
 module.exports = (req, res)->
 	self = this
 	output = 
@@ -19,7 +20,7 @@ module.exports = (req, res)->
 		
 		req.query.size = parseInt(req.query.size)
 		req.query.size = 500 if req.query.size isnt 1280
-
+		
 		if req.query.random is "1"
 			tumblr.path = "/api/read?type=photo"
 			http.get tumblr, (stream)->
@@ -52,7 +53,7 @@ module.exports = (req, res)->
 
 getTumblog = (output, tumblr, query, callback)->
 	tumblr.path = "/api/read?type=photo&start=#{query.page}&num=20"
-	http.get tumblr, (stream)->
+	http.get(tumblr, (stream)->
 		tumblog = ""
 		stream.on "data", (data)->
 			tumblog += data
@@ -78,8 +79,7 @@ getTumblog = (output, tumblr, query, callback)->
 						output.posts.push outpost
 					output.status = "success"
 			callback output
-
-		stream.on "error", (err)->
-			console.log err
-			output.status = "error"
-			callback output
+	).on "error", (err)->
+		console.log err
+		output.status = "error"
+		callback output
