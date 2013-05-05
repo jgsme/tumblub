@@ -68,6 +68,7 @@ $(document).ready ->
 						self.posts.push post 
 					self.page += json.posts.length
 				else
+					delete self.id
 					self.custom = "www.davidslog.com"
 				callback()
 
