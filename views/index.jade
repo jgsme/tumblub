@@ -6,25 +6,37 @@ block links
 block content
 	form(method="get", action="/show")
 		img(src="images/logo.png")
-		p
+		p(class="large")
 			span http:// 
 			input(type="text", name="id", size="5")
 			span .tumblr.com
 			input(type="submit", value="show!")
-		span random
-		input(type="checkbox", name="random")
+		p
+			label(for="random1") random
+			input(type="checkbox", name="random", id="random1")
+		p
+			label(for="p500_2") 500
+			input(type="radio", name="size", id="p500_2", value="500", checked)
+			label(for="p1280_2") 1280
+			input(type="radio", name="size", id="p1280_2", value="1280")
 		p - or -
 	form(method="get", action="/show")
-		p
+		p(class="large")
 			span http://
 			input(type="text", name="custom", size="20")
 			input(type="submit", value="show!")
-		span random
-		input(type="checkbox", name="random")
+		p
+			label(for="random2") random
+			input(type="checkbox", name="random", id="random2")
+		p
+			label(for="p500_2") 500
+			input(type="radio", name="size", id="p500_2", value="500", checked)
+			label(for="p1280_2") 1280
+			input(type="radio", name="size", id="p1280_2", value="1280")
 	ul
 		li ①Enter someone tumblr ID↑ OR Enter custom tumblr domain url
 		li ②Click "show!" button
 		li ③Enjoy your tumblr life!
 	p
 		span made by 
-		a(href="/show?custom=tumblr.jgs.me") r-jigsaw
+		a(href="/show?custom=tumblr.jgs.me") jigsaw

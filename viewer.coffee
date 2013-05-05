@@ -8,6 +8,7 @@ $(document).ready ->
 		this.random = 0
 		this.ajaxLock = 0
 		this.page = 0
+		this.size = 0
 		
 		this.init = ->
 			query = window.location.search.substring 1
@@ -25,12 +26,19 @@ $(document).ready ->
 				this.custom = query.custom
 			if query.random?
 				this.random = 1
+			if query.size?
+				query.size = parseInt(query.size)
+				if query.size is 1280
+					this.size = query.size
+				else
+					this.size = 500
 			this.loadPosts self.startSlideshow
 		
 		this.loadPosts = (callback)->
 			params = 
 				page: self.page
 				random: self.random
+				size: self.size
 			if this.id?
 				params.id = this.id
 			else if this.custom?

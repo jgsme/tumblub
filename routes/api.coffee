@@ -6,15 +6,20 @@ module.exports = (req, res)->
 		status: null
 		message: null
 		posts: []
-
+	
 	if req.query.id? || req.query.custom?
 		tumblr = 
 			host: null
 			path: null
+
 		if req.query.id?
 			tumblr.host = "#{req.query.id}.tumblr.com"
 		else
 			tumblr.host = req.query.custom
+		
+		req.query.size = parseInt(req.query.size)
+		req.query.size = 500 if req.query.size isnt 1280
+
 		if req.query.random is "1"
 			tumblr.path = "/api/read?type=photo"
 			http.get tumblr, (stream)->
@@ -27,7 +32,8 @@ module.exports = (req, res)->
 						output.message = "XML data is not found. Maybe miss id or domain."
 					else
 						tumblog = JSON.parse parser.toJson(tumblog)
-						getTumblog output, tumblr, (Math.floor(Math.random() * (parseInt(tumblog.tumblr.posts.total))) - 20), (output)->
+						req.query.page = (Math.floor(Math.random() * (parseInt(tumblog.tumblr.posts.total))) - 20)
+						getTumblog output, tumblr, req.query, (output)->
 							res.send JSON.stringify(output)
 				stream.on "error", (err)->
 					console.log err
@@ -35,7 +41,7 @@ module.exports = (req, res)->
 					output.message = "tumblog load error"
 					res.send JSON.stringify(output)
 		else
-			getTumblog output, tumblr, req.query.page, (output)->
+			getTumblog output, tumblr, req.query, (output)->
 				res.send JSON.stringify(output)
 	else
 		output.status = "Error"
@@ -44,8 +50,8 @@ module.exports = (req, res)->
 
 	this
 
-getTumblog = (output, tumblr, page, callback)->
-	tumblr.path = "/api/read?type=photo&start=#{page}&num=20"
+getTumblog = (output, tumblr, query, callback)->
+	tumblr.path = "/api/read?type=photo&start=#{query.page}&num=20"
 	http.get tumblr, (stream)->
 		tumblog = ""
 		stream.on "data", (data)->
@@ -63,8 +69,12 @@ getTumblog = (output, tumblr, page, callback)->
 					for post in tumblog.tumblr.posts.post
 						outpost =
 							id: post.id
-							photo_url: post["photo-url"][0]["$t"]
+							photo_url: null
 							reblog_key: post["reblog-key"]
+						if query.size is 1280
+							outpost.photo_url = post["photo-url"][0]["$t"]
+						else
+							outpost.photo_url = post["photo-url"][1]["$t"]
 						output.posts.push outpost
 					output.status = "success"
 			callback output
