@@ -13,6 +13,9 @@ app.configure ->
 	app.use app.router
 	app.use require('stylus').middleware({ src: __dirname + '/public' })
 	app.use express.static(path.join __dirname, "public")
+	app.use (err, req, res, next)->
+		console.log err
+		res.send 500, "Internal Serer Error!"
 
 app.configure "development", ->
 	app.use express.errorHandler()
