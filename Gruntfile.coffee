@@ -20,10 +20,6 @@ module.exports = (grunt)->
 					"public/javascripts/viewer.js": "viewer.coffee"
 				options:
 					bare: true
-		watch:
-			files: ["*.coffee"]
-			tasks: "coffee"
 
-		grunt.loadNpmTasks "grunt-contrib"
-
-		grunt.registerTask "default", "watch"
+		grunt.loadNpmTasks "grunt-contrib-coffee"
+		
