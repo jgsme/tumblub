@@ -1,6 +1,6 @@
 {
   "name": "tumblub",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "tumblr slideshow on your browser",
   "author": "jigsaw <m@jgs.me>",
   "engines": {
@@ -11,14 +11,14 @@
     "npm": "1.2.12",
     "coffee-script": "1.6.1",
     "stylus": "0.32.1",
-	  "grunt": "0.4.0",
+    "grunt": "0.4.0",
     "grunt-cli": "0.1.6",
-	  "grunt-contrib": "0.4.0",
-	  "express": "3.1.0",
+    "grunt-contrib": "0.4.0",
+    "express": "3.1.0",
     "jade": "0.28.2",
     "xml2json": "0.2.4"
   },
   "scripts": {
-  	"start": "grunt coffee; node app.js"
+    "start": "grunt coffee; node app.js"
   }
 }
