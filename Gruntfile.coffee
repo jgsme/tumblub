@@ -1,4 +1,3 @@
-# grut config
 module.exports = (grunt)->
 	grunt.initConfig
 		pkg: "<json:package.json>"
@@ -20,6 +19,17 @@ module.exports = (grunt)->
 					"public/javascripts/viewer.js": "viewer.coffee"
 				options:
 					bare: true
+			tests:
+				files:
+					"tests/casperjs/test.js": "tests/casperjs/test.coffee"
+				options:
+					bare: true
+
+		casperjs:
+			files: ["tests/casperjs/*.js"]
 
 		grunt.loadNpmTasks "grunt-contrib-coffee"
+		grunt.loadNpmTasks "grunt-casperjs"
+
+		grunt.registerTask "test", ["coffee", "casperjs"]
 		

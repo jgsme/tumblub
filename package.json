@@ -15,10 +15,12 @@
     "grunt-contrib-coffee": "0.7.0",
     "express": "3.3.4",
     "jade": "0.34.1",
-    "xml2json": "0.3.2"
+    "xml2json": "0.3.2",
+    "grunt-casperjs": "1.0.6"
   },
   "scripts": {
-    "start": "grunt coffee; node app.js"
+    "start": "grunt coffee; node app.js",
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
