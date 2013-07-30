@@ -19,5 +19,9 @@
   },
   "scripts": {
     "start": "grunt coffee; node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/e-jigsaw/tumblub.git"
   }
 }
