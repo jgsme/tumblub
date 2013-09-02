@@ -25,6 +25,7 @@ module.exports = (grunt)->
 				files:
 					"public/javascripts/jquery.js": "bower_components/jquery/jquery.min.js"
 					"public/javascripts/knockout.js": "bower_components/knockout/knockout.js"
+					"public/javascripts/jquery.transit.js": "bower_components/jquery.transit/jquery.transit.js"
 
 		grunt.loadNpmTasks "grunt-contrib-coffee"
 		grunt.loadNpmTasks "grunt-contrib-copy"
