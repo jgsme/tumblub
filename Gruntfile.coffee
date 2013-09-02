@@ -20,10 +20,12 @@ module.exports = (grunt)->
 					"public/javascripts/viewer.js": "viewer.coffee"
 				options:
 					bare: true
-		watch:
-			files: ["*.coffee"]
-			tasks: "coffee"
+		copy:
+			javascripts:
+				files:
+					"public/javascripts/jquery.js": "bower_components/jquery/jquery.min.js"
+					"public/javascripts/knockout.js": "bower_components/knockout/knockout.js"
 
-		grunt.loadNpmTasks "grunt-contrib"
-
-		grunt.registerTask "default", "watch"
+		grunt.loadNpmTasks "grunt-contrib-coffee"
+		grunt.loadNpmTasks "grunt-contrib-copy"
+		
