@@ -1,6 +1,6 @@
 {
   "name": "tumblub",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "tumblr slideshow on your browser",
   "author": "jigsaw <m@jgs.me>",
   "engines": {
@@ -15,10 +15,12 @@
     "grunt-contrib-coffee": "0.7.0",
     "express": "3.3.4",
     "jade": "0.34.1",
-    "xml2json": "0.3.2"
+    "xml2json": "0.3.2",
+    "grunt-contrib-copy": "~0.4.1"
   },
   "scripts": {
-    "start": "grunt coffee; node app.js"
+    "postinstall": "npm install bower; node_modules/bower/bin/bower install; grunt copy coffee",
+    "start": "node app"
   },
   "repository": {
     "type": "git",
