@@ -27,4 +27,5 @@ module.exports = (grunt)->
 					"public/javascripts/knockout.js": "bower_components/knockout/knockout.js"
 
 		grunt.loadNpmTasks "grunt-contrib-coffee"
+		grunt.loadNpmTasks "grunt-contrib-copy"
 		
