@@ -74,12 +74,12 @@ $(document).ready ->
 
 		this.startSlideshow = ->
 			arg = arguments
-			$(".current:first").animate
+			$(".current:first").transition
 				left: "-100%"
 			, 800, "linear", ->
 				$(".current:first").removeClass("current").addClass "finish"
 			$(".wait:first").removeClass("wait").addClass "prev"
-			$(".prev:first").animate
+			$(".prev:first").transition
 				left: "0%"
 			, 800, "linear", ->
 				$(".prev:first").removeClass("prev").addClass "current"
