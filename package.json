@@ -16,10 +16,11 @@
     "express": "3.3.4",
     "jade": "0.34.1",
     "xml2json": "0.3.2",
-    "grunt-contrib-copy": "~0.4.1"
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.4"
   },
   "scripts": {
-    "postinstall": "npm install bower; node_modules/bower/bin/bower install; grunt copy coffee",
+    "postinstall": "npm install bower; node_modules/bower/bin/bower install; grunt copy coffee uglify",
     "start": "node app"
   },
   "repository": {
