@@ -87,6 +87,7 @@ $(document).ready ->
 				self.ajaxLock = 1
 				self.loadPosts ->
 					self.ajaxLock = 0
+			$(".finish").remove()
 			setTimeout arg.callee, self.speed
 
 		this
