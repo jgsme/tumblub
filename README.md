@@ -9,6 +9,7 @@ http://tumblub.jgs.me/
 
 ### change log
 
+* 0.1.6 Update node modules
 * 0.1.5 Update node modules
 * 0.1.4 Uglify javascript codes
 * 0.1.3 Add remove function
