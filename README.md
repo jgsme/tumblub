@@ -1,5 +1,5 @@
-[![Dependency Status](https://david-dm.org/e-jigsaw/tumblub.png)](https://david-dm.org/e-jigsaw/tumblub)
-[![devDependency Status](https://david-dm.org/e-jigsaw/tumblub/dev-status.png)](https://david-dm.org/e-jigsaw/tumblub#info=devDependencies)
+[![Dependency Status](https://david-dm.org/jgsme/tumblub.png)](https://david-dm.org/jgsme/tumblub)
+[![devDependency Status](https://david-dm.org/jgsme/tumblub/dev-status.png)](https://david-dm.org/jgsme/tumblub#info=devDependencies)
 
 TUMBLUB
 =======
