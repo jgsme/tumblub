@@ -25,4 +25,4 @@ app.get '/show', routes.show
 app.get '/api', routes.api
 
 server.listen app.get('port'), ->
-  console.log 'Listening port at: #{app.get('port')}'
+  console.log "Listening port at: #{app.get('port')}"
