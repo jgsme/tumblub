@@ -1,2 +1,2 @@
 module.exports = (req, res)->
-	res.render "show"
+  res.render "show"
