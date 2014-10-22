@@ -2,7 +2,7 @@
   "name": "tumblub",
   "version": "0.1.6",
   "description": "tumblr slideshow on your browser",
-  "author": "jigsaw <m@jgs.me>",
+  "author": "jigsaw (http://jgs.me)",
   "engines": {
     "node": "0.10.25",
     "npm": "1.3.24"
