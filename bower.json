@@ -1,9 +1,0 @@
-{
-  "name": "tumblub",
-  "version": "0.1.1",
-  "dependencies": {
-    "jquery": "~2.0.3",
-    "knockout": "bowerjs/knockout#~2.3.0",
-    "jquery.transit": "~0.9.9"
-  }
-}
