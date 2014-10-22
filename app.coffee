@@ -21,9 +21,7 @@ app.configure "development", ->
   app.use express.errorHandler()
 
 app.get "/", routes.index
-
 app.get "/show", routes.show
-
 app.get "/api", routes.api
 
 server.listen app.get("port"), ->
