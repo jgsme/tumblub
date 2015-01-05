@@ -14,8 +14,8 @@ app.use (err, req, res, next)->
   console.log err
   res.send 500, 'Internal Serer Error!'
 
-app.get '/', routes.index
-app.get '/show', routes.show
-app.get '/api', routes.api
+app.get '/', (req, res)-> res.render 'index'
+app.get '/show', (req, res)-> res.render 'show'
+app.get '/api', (req, res)-> # TODO
 
 server = app.listen app.get('port'), -> console.log "Listening port at: #{app.get('port')}"
