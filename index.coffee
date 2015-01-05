@@ -28,7 +28,6 @@ app.use (err, req, res, next)->
   res.send 500, 'Internal Serer Error!'
 
 app.get '/', (req, res)-> res.render 'index'
-app.get '/show', (req, res)-> res.render 'show'
 app.get '/api/:id', (req, res)-> crawl req.params.id, (err, posts)-> if err? then res.status(404).send 'Not found' else res.json posts
 
 server = app.listen app.get('port'), -> console.log "Listening port at: #{app.get('port')}"
