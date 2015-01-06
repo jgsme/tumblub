@@ -17,14 +17,13 @@
     "gulp-stylus": "^1.3.4",
     "jade": "^1.8.2",
     "react": "^0.12.2",
-    "react-jade": "^2.3.0",
+    "request": "^2.51.0",
     "stylus": "^0.49.3",
     "vinyl-source-stream": "^1.0.0"
   },
   "browserify": {
     "transform": [
-      "coffeeify",
-      "react-jade"
+      "coffeeify"
     ]
   },
   "repository": {

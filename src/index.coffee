@@ -1,4 +1,4 @@
 React = require 'react'
 Tumblub = require './tumblub'
 
-React.render React.createFactory(Tumblub)(), document.getElementById('container')
+React.render React.createElement(Tumblub, {name: 'Tumblub'}), document.body
