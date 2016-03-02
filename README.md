@@ -2,6 +2,7 @@ tumblub
 =======
 
 [![devDependency Status](https://david-dm.org/jgsme/tumblub/dev-status.svg)](https://david-dm.org/jgsme/tumblub#info=devDependencies)
+[![wercker status](https://app.wercker.com/status/c0c2bd03f5b36b51950c956e92f8759a/s/master "wercker status")](https://app.wercker.com/project/bykey/c0c2bd03f5b36b51950c956e92f8759a)
 
 http://tumblub.jgs.me/
 
