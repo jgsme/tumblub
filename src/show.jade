@@ -1,7 +1,7 @@
 extends layout
 
 block links
-  link(href="stylesheets/viewer.css", rel="stylesheet", type="text/css")
+  link(href="/viewer.css", rel="stylesheet", type="text/css")
 
 block scripts
   script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js', type='text/javascript')
@@ -10,5 +10,5 @@ block scripts
 
 block content
   #viewer(data-bind="foreach: posts")
-    .post.wait(data-bind="style: {backgroundImage: 'url('+photo_url+')'}")
-  script(src='javascripts/viewer.js')
+    .post.wait(data-bind="style: {backgroundImage: 'url('+$data+')'}")
+  script(src='/viewer.js')

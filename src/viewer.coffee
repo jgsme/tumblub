@@ -11,7 +11,7 @@ $(document).ready ->
     this.size = 500
     this.speed = 3600
     this.stock = 100
-    
+
     this.init = ->
       query = window.location.search.substring 1
       params = query.split "&"
@@ -22,7 +22,7 @@ $(document).ready ->
           key = param.substring 0, position
           value = param.substring position+1
           query[key] = value
-      
+
       if query.id is ""
         query.id = "staff"
 
@@ -33,12 +33,12 @@ $(document).ready ->
         this.id = query.id
       else if query.custom?
         this.custom = query.custom
-      else 
+      else
         query.id = "staff"
-      
+
       if query.random?
         this.random = 1
-      
+
       if query.size?
         query.size = parseInt query.size
         if query.size is 1280
@@ -50,26 +50,22 @@ $(document).ready ->
         query.speed = parseInt query.speed
         if query.speed >= 1000
           this.speed = query.speed
-      
+
       this.loadPosts self.startSlideshow
-    
+
     this.loadPosts = (callback)->
-      params = 
-        page: self.page
-        random: self.random
+      params =
         size: self.size
       if this.id?
-        params.id = this.id
+        idOrCustom = this.id
       else if this.custom?
-        params.custom = this.custom
-      $.getJSON "/api", params, (json)->
-        if json.status is "success"
-          for post in json.posts
-            self.posts.push post 
-          self.page += json.posts.length
-        else
-          delete self.id
-          self.custom = "www.davidslog.com"
+        idOrCustom = this.custom
+      unless self.random
+        params.offset = self.page
+      $.getJSON "//rpt.jgs.me/ps/#{idOrCustom}", params, (json)->
+        for url in json
+          self.posts.push url
+        self.page += json.length
         callback()
 
     this.startSlideshow = ->

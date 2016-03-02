@@ -1,10 +1,10 @@
 extends layout
 
 block links
-  link(href="stylesheets/index.css", rel="stylesheet", type="text/css")
+  link(href="/index.css", rel="stylesheet", type="text/css")
 
 block content
-  form(method="get", action="/show")
+  form(method="get", action="/show.html")
     .centering
       p(class="large")
         span http://
@@ -37,7 +37,7 @@ block content
     .centering
       p(class="large") - or -
   
-  form(method="get", action="/show")
+  form(method="get", action="/show.html")
     .centering
       p(class="large")
         span http://
@@ -82,7 +82,7 @@ block content
 
   .centering
     p
-      img(src="images/logo.png")
+      img(src="/logo.png")
     p
       span made by 
-      a(href="/show?custom=tumblr.jgs.me") jigsaw
+      a(href="/show.html?custom=tumblr.jgs.me") jigsaw

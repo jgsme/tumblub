@@ -1,19 +1,30 @@
 {
+  "private": true,
   "name": "tumblub",
-  "version": "0.2.0",
   "description": "tumblr slideshow on your browser",
   "author": "jigsaw (http://jgs.me)",
-  "engines": {
-    "node": "5.7.0",
-    "npm": "3.6.0"
+  "config": {
+    "DEST": "build",
+    "PORT": "3000"
   },
-  "dependencies": {
+  "scripts": {
+    "build": "npm-run-all build:before -p build:assets:* build:assets:jade:*",
+    "build:before": "mkdir -p $npm_package_config_DEST",
+    "build:assets:cname": "cp src/CNAME $npm_package_config_DEST",
+    "build:assets:images": "cp -r src/images/* $npm_package_config_DEST",
+    "build:assets:coffee": "coffee -cbo $npm_package_config_DEST src/*.coffee",
+    "build:assets:stylus": "stylus src/*.styl --out $npm_package_config_DEST -c",
+    "build:assets:jade:index": "jade -o $npm_package_config_DEST src/index.jade",
+    "build:assets:jade:show": "jade -o $npm_package_config_DEST src/show.jade",
+    "clean": "rm -rf $npm_package_config_DEST",
+    "serve": "static -p $npm_package_config_PORT $npm_package_config_DEST"
+  },
+  "devDependencies": {
     "stylus": "0.53.0",
-    "express": "4.13.4",
     "jade": "1.11.0",
-    "xml2json": "0.9.0",
     "coffee-script": "^1.10.0",
-    "coffee-middleware": "^0.3.0"
+    "node-static": "^0.7.7",
+    "npm-run-all": "^1.5.1"
   },
   "repository": {
     "type": "git",

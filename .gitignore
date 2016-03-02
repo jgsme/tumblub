@@ -1,7 +1,2 @@
 node_modules
-bower_components
-.DS_Store
-.env
-*.js
-*.log
-*.css
+build
